@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "hook-mining-engine"
+version = "0.1.0"
+description = "Mine viral hooks from social media and generate on-brand content"
+authors = ["Pixii <team@pixii.ai>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.0"
+uvicorn = {extras = ["standard"], version = "^0.30.0"}
+litellm = "^1.40.0"
+supabase = "^2.5.0"
+apify-client = "^1.6.0"
+pydantic-settings = "^2.3.0"
+apscheduler = "^3.10.0"
+httpx = ">=0.25.0"
+openai = ">=1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
