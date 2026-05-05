@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     apify_api_token: str
     cron_day_of_week: str = "sun"
     cron_hour: int = 2
+    render_external_url: str = ""
 
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
 

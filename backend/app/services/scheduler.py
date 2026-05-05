@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime
 
+import httpx
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from app.config import settings
@@ -47,6 +48,19 @@ async def _weekly_mine_job():
     logger.info(f"Weekly mining complete: {counts}")
 
 
+async def _keep_alive_ping():
+    """Ping own health endpoint to prevent Render free tier from sleeping."""
+    url = settings.render_external_url
+    if not url:
+        return
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.get(f"{url.rstrip('/')}/health", timeout=10)
+            logger.debug(f"Keep-alive ping: {resp.status_code}")
+    except Exception as e:
+        logger.warning(f"Keep-alive ping failed: {e}")
+
+
 def start_scheduler():
     scheduler.add_job(
         _weekly_mine_job,
@@ -56,6 +70,18 @@ def start_scheduler():
         id="weekly_mine",
         replace_existing=True,
     )
+
+    # Keep Render free tier alive — ping every 5 minutes
+    if settings.render_external_url:
+        scheduler.add_job(
+            _keep_alive_ping,
+            "interval",
+            minutes=5,
+            id="keep_alive",
+            replace_existing=True,
+        )
+        logger.info(f"Keep-alive pinger enabled for {settings.render_external_url}")
+
     scheduler.start()
     logger.info(
         f"Scheduler started — mining every {settings.cron_day_of_week} at {settings.cron_hour}:00"
