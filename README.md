@@ -53,14 +53,29 @@ Supabase (hooks, generated_scripts, mining_config, brand_config)
 ## Screenshots
 
 ### Hook Library
+<img width="1800" height="1040" alt="image" src="https://github.com/user-attachments/assets/eecc582f-46fd-4758-adae-cb1cd2d78e66" />
+
 
 Thumbnails, pattern badges, engagement scores, transcript snippets, video links.
 
 ### Mining Results
 
+<img width="689" height="783" alt="image" src="https://github.com/user-attachments/assets/c8eba888-ca0e-43cb-ac34-c6e5ab66c03b" />
+
+
 After mining: trending audio detection + 5 auto-generated reel scripts with SEO captions.
 
 ### Brand Config
+
+<img width="1306" height="995" alt="image" src="https://github.com/user-attachments/assets/6e16b6ec-6f71-46c3-828f-b9c824373898" />
+
+<img width="1263" height="1029" alt="image" src="https://github.com/user-attachments/assets/0753f0e0-432e-43ca-bd26-ed75804018a5" />
+
+<img width="938" height="1002" alt="image" src="https://github.com/user-attachments/assets/5f42744f-72f3-467e-8d4d-4567590ca05c" />
+
+<img width="989" height="878" alt="image" src="https://github.com/user-attachments/assets/a2279d39-d92f-456f-a623-46f936378779" />
+
+
 
 Editable brand profile with AI regeneration — voice, audience, content pillars, CTAs.
 
